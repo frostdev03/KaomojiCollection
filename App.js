@@ -1,28 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Button, StatusBar} from 'react-native';
+import {View, Text, TouchableOpacity, StatusBar, Alert} from 'react-native';
 
 const App = () => {
+  function hello() {
+    Alert.alert('Hello bang!');
+  }
+
   return (
     <View style={{flex: 1, backgroundColor: '#282c34'}}>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#21252b'} />
-      <View
-        style={{
-          backgroundColor: '#21252b',
-          paddingTop: 20,
-          paddingBottom: 20,
-          paddingStart: 10,
-          elevation: 5,
-        }}>
+      <StatusBar backgroundColor={'#282c34'} barStyle={'light-content'} />
+
+      <TouchableOpacity onPress={() => hello()}>
         <Text
           style={{
-            color: '#fff',
-            fontWeight: 'bold',
             fontSize: 18,
-            textAlign: 'center',
+            color: '#fff',
+            alignContent: 'center',
+            justifyContent: 'center',
           }}>
-          Kaomoji
+          Kaomoji Collection
         </Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
