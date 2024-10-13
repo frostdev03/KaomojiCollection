@@ -1,25 +1,24 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity, StatusBar, Alert} from 'react-native';
+import {View, Image, Text, TouchableOpacity, Alert} from 'react-native';
+
+let saldo = 100000;
 
 const App = () => {
-  function hello() {
-    Alert.alert('Hello bang!');
+  const [saldoSaya, setSaldoSaya] = useState(100000);
+
+  function hitungDiskon() {
+    let perhitungan;
+    perhitungan = saldoSaya - 1000;
+    setSaldoSaya(perhitungan);
+    // saldo = saldo - 10000;
+    // Alert.alert('saldo saya ' + saldo);
   }
 
   return (
-    <View style={{flex: 1, backgroundColor: '#282c34'}}>
-      <StatusBar backgroundColor={'#282c34'} barStyle={'light-content'} />
-
-      <TouchableOpacity onPress={() => hello()}>
-        <Text
-          style={{
-            fontSize: 18,
-            color: '#fff',
-            alignContent: 'center',
-            justifyContent: 'center',
-          }}>
-          Kaomoji Collection
-        </Text>
+    <View>
+      <Text>{saldoSaya}</Text>
+      <TouchableOpacity onPress={() => hitungDiskon()}>
+        <Text>Hitung Diskon</Text>
       </TouchableOpacity>
     </View>
   );
